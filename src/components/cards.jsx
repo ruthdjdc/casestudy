@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tabs, Tab, Grid, Cell, Card, CardTitle, CardText, CardActions, Button, CardMenu, IconButton } from 'react-mdl';
+import { Tabs, Tab, Grid, Cell, CardText } from 'react-mdl';
 
 
 class Cards extends Component {
@@ -14,7 +14,8 @@ class Cards extends Component {
     if(this.state.activeTab === 0){
       return(
         <div className="projects-grid">
-            <CardText>Apply for a Credit Card</CardText>   
+            <CardText>Apply for a Credit Card</CardText>  
+
         </div>
       )
     } else if(this.state.activeTab === 1) {

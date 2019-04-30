@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, Grid, Cell,  CardText} from 'react-mdl';
-//import Primuser from './primuser';
+import PrimUser from './puser';
+import AddSubuserTables from './subusertable';
+import AddSubuser from './subuser';
+
 
 
 class Users extends Component {
@@ -16,15 +19,21 @@ constructor(props) {
       return(
         <div className="primuser">
             <CardText> Profile Information</CardText>
-             
+             <PrimUser/>
               
 
         </div>
       )
     } else if(this.state.activeTab === 1) {
+
+
+
+
       return (
         <div className="subuser">
-        
+       <button>Add Supplementary User</button>
+      <AddSubuser/>
+     
 
          </div>
       )

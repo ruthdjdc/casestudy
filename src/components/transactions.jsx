@@ -1,9 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Trans from './trans';
-import {
-  getTransList
-} from '../util/service-helper';
-
+import '../css/transactions.css'
 
 
 class Transactions extends Component {
@@ -12,25 +8,74 @@ class Transactions extends Component {
     super(props);
     
     this.state = {
-        transList: []
+        trans: [],
+        isLoaded: false,
     };
   }
   componentDidMount() {
     
-    this.getTrans(); 
-  }
-  getTrans() {
-    getTransList().then(res => {
-      this.setState({transList : res.data.data});
-    }) 
-  }
+  fetch('http://localhost:8080/cpm.rjdc.ccsystem/rest/trans')
+      .then ( res => res.json())
+      .then (json => {
+        this.setState ({
+          isLoaded: true,
+          trans: json,
+        })
+      });     
+}
 
   render() {
+    var { isLoaded, trans } = this.state;
+      if (!isLoaded) {
+        return <div>Loading..</div>
+      }
+      else {
 
     return(
-      <Trans transList={this.state.transList}/>
+     
+        <div className="trans">
+        <ul>
+          {trans.map(trans => (
+           
+             
+           
+           
+             <Fragment>
+                <table className='trans-table'>
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr className='trans-table-row'>
+                        <th className='trans-table-cell'>Transaction ID</th>
+                        <th className='trans-table-cell'>DATE</th>
+                        <th className='trans-table-cell'>DESCRIPTION</th>
+                        <th className='trans-table-cell'>MERCHANT</th>
+                        <th className='trans-table-cell'>TRANSACTION FEE</th>
+                        <th className='trans-table-cell'>AMOUNT</th>
+                    </tr>
+
+                
+
+                    <tr className='trans-table-row'>
+                    <th className='trans-table-cell'>{trans.id}</th>
+                        <th className='trans-table-cell'>{trans.date}</th>
+                        <th className='trans-table-cell'>{trans.desc}</th>
+                        <th className='trans-table-cell'>{trans.merch}</th>
+                        <th className='trans-table-cell'>{trans.fee}</th>
+                        <th className='trans-table-cell'>{trans.amt}</th>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </Fragment>
+           
+          ))}
+          </ul>
+        </div>
       
     );
+      }
   }
 }
 

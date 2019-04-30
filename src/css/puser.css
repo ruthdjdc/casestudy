@@ -1,0 +1,11 @@
+
+      /* Full-width input fields */
+     p {
+        width: 20%;
+        padding: 25px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: 10px ;
+        background: rgb(212, 209, 209);
+      
+  }
