@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import '../css/transactions.css'
+import axios from 'axios';
 
 
 class Transactions extends Component {
@@ -24,21 +25,23 @@ class Transactions extends Component {
       });     
 }
 
+
+
   render() {
     var { isLoaded, trans } = this.state;
       if (!isLoaded) {
-        return <div>Loading..</div>
+        return <div>Loading..
+
+        </div>
+        
       }
       else {
 
     return(
-     
+      
         <div className="trans">
         <ul>
           {trans.map(trans => (
-           
-             
-           
            
              <Fragment>
                 <table className='trans-table'>
@@ -51,7 +54,6 @@ class Transactions extends Component {
                         <th className='trans-table-cell'>DATE</th>
                         <th className='trans-table-cell'>DESCRIPTION</th>
                         <th className='trans-table-cell'>MERCHANT</th>
-                        <th className='trans-table-cell'>TRANSACTION FEE</th>
                         <th className='trans-table-cell'>AMOUNT</th>
                     </tr>
 
@@ -62,7 +64,6 @@ class Transactions extends Component {
                         <th className='trans-table-cell'>{trans.date}</th>
                         <th className='trans-table-cell'>{trans.desc}</th>
                         <th className='trans-table-cell'>{trans.merch}</th>
-                        <th className='trans-table-cell'>{trans.fee}</th>
                         <th className='trans-table-cell'>{trans.amt}</th>
                     </tr>
 
@@ -77,7 +78,7 @@ class Transactions extends Component {
     );
       }
   }
-}
 
+}
 export default Transactions;
 

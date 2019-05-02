@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, Grid, Cell,  CardText} from 'react-mdl';
 import PrimUser from './puser';
-import AddSubuserTables from './subusertable';
-import AddSubuser from './subuser';
+import MainSub from './suser';
 
 
 
@@ -31,9 +30,8 @@ constructor(props) {
 
       return (
         <div className="subuser">
-       <button>Add Supplementary User</button>
-      <AddSubuser/>
-     
+      <MainSub/>
+    
 
          </div>
       )

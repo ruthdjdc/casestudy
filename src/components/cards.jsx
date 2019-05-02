@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, Grid, Cell, CardText } from 'react-mdl';
-
+import CCListTable from './cclisttable';
 
 class Cards extends Component {
 
@@ -20,7 +20,10 @@ class Cards extends Component {
       )
     } else if(this.state.activeTab === 1) {
       return (
-        <div><CardText>Credit Card Lists</CardText> </div>
+        <div><CardText>Credit Card Lists</CardText> 
+        <CCListTable/>
+        </div>
+        
       )
     } else if(this.state.activeTab === 2) {
       return (
